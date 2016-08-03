@@ -1,9 +1,32 @@
 body
 {
     margin: 0;
+    font-family: sans-serif;
 }
 
 body *
 {
     box-sizing: border-box;
+}
+
+.suggestions
+{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.suggest-card-square
+{
+    margin-bottom: 10px;
+    height: 240px;
+    width: 100%;
+}
+
+.suggest-card-square > .mdl-card__title
+{
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
