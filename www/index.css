@@ -7,3 +7,35 @@ body *
 {
     box-sizing: border-box;
 }
+
+.search-arrow__container
+{
+    display: flex;
+    width: 100%;
+    background-color: #ffdb4d;
+    height: 50px;
+}
+
+.search-arrow__input-wrap
+{
+    background-color: white;
+    flex-grow: 1;
+    margin: 4px 0px 4px 4px;
+}
+
+.search-arrow__input-wrap input.search-arrow__input
+{
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    padding: 0 8px;
+}
+
+.search-arrow__button
+{
+    font-size: 16px;
+}
