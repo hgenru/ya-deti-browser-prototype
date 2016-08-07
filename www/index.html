@@ -37,7 +37,13 @@
     </div>
 </main>
 
-<button type="button" name="button" class="float-button" data-bind="click: recognizerStartHandler"></button>
+<button type="button" name="button" class="float-button"
+        data-bind="
+        click: recognizerStartHandler,
+        css: {
+            'float-button--listen': $root.recognizer().isListen
+        }
+        "></button>
 
 <script type="text/javascript" src="index.js"></script>
 

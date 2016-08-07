@@ -13,6 +13,7 @@
     "describe": false,
     "beforeEach": false,
     "it": false,
+    "ko": true
   },
   "rules": {
     "camelcase": 0,

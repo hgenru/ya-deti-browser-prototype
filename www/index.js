@@ -25,8 +25,7 @@ var SUGGESTIONS = [
     }
 ];
 
-function AppViewModel() {
-    var self = this;
+function initRecognizer(ctx) {
     var SpeechRecognition = window.SpeechRecognition ||
                             window.webkitSpeechRecognition;
 
@@ -35,29 +34,65 @@ function AppViewModel() {
         recognizer.lang = 'ru-RU';
         recognizer.continuous = false;
         recognizer.interimResults = false;
-        recognizer.onresult = function(e) {
-            var index = e.resultIndex;
-            var result = e.results[index][0].transcript.trim();
-            console.log(result);
-            self.recognizer.stop();
-        };
+        recognizer.maxAlternatives = 5;
+
         recognizer.onerror = function(e) {
             if (e.error === 'not-allowed') {
-                console.log('мне запретили доступ');
-                self.isRecognizerEnabled = false;
+                Object.assign({}, ctx.recognizer(), {
+                    enable: false,
+                    recognizer: recognizer
+                });
             }
         };
-        this.isRecognizerEnabled = true;
-        this.recognizer = recognizer;
-        //
-    } else {
-        console.log('fail');
-        this.isRecognizerEnabled = false;
+
+        ctx.recognizer(
+            Object.assign({}, ctx.recognizer(), {
+                enable: true,
+                recognizer: recognizer
+            })
+        );
     }
+}
+
+function AppViewModel() {
+    var self = this;
+
+    self.recognizer = ko.observable({
+        recognizer: null,
+        isListen: false,
+        enable: false
+    });
+
+    initRecognizer(self);
 
     this.recognizerStartHandler = function() {
-        console.log('я слушаю');
-        this.recognizer.start();
+        if (this.recognizer().enable && !this.recognizer().isListen) {
+            self.recognizer(
+                Object.assign({}, self.recognizer(), {isListen: true})
+            );
+            var recognizer = this.recognizer().recognizer;
+            window.d = recognizer;
+            recognizer.onresult = function(e) {
+                console.group('recognizer result');
+                var index = e.resultIndex;
+                console.group('варианты');
+                for (let res of e.results[index]) {
+                    console.log(res.transcript);
+                }
+                console.groupEnd();
+                var result = e.results[index][0].transcript.trim();
+                console.log('выбрал:', result);
+                console.groupEnd();
+                recognizer.stop();
+                self.recognizer(
+                    Object.assign({}, self.recognizer(), {isListen: false})
+                );
+            };
+            console.log('я слушаю');
+            recognizer.start();
+        } else {
+            console.log();
+        }
     };
 
     this.suggestions = SUGGESTIONS;
