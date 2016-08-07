@@ -11,6 +11,7 @@
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>
     <link rel="stylesheet" href="index.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -20,7 +21,10 @@
             transform: 'translateX(' + acquaintanceStep() * -100 + '%)'
         }">
             <div class="acquaintance-page">
-                hello
+                <h1>Привет, меня зовут кругляш!</h1>
+                <button class="ya-button tutorial-button" data-bind="click: function() {acquaintanceStep(1)}">
+                    <span>Далее</span>
+                </button>
             </div>
             <div class="acquaintance-page">
                 hello 2
