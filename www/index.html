@@ -37,13 +37,20 @@
     </div>
 </main>
 
-<button type="button" name="button" class="float-button"
-        data-bind="
-        click: recognizerStartHandler,
-        css: {
-            'float-button--listen': $root.recognizer().isListen
-        }
-        "></button>
+<div class="float-button">
+    <span class="speach-popup">
+        <span class="speach-popup--content" data-bind="text: result"></span>
+    </span>
+    <button type="button" name="button" class="hero"
+    data-bind="
+    click: recognizerStartHandler,
+    css: {
+        'hero--listen': $root.recognizer().isListen
+    }
+    "></button>
+    <span class="hero hero--waves"></span>
+</div>
+
 
 <script type="text/javascript" src="index.js"></script>
 

@@ -63,6 +63,8 @@ function AppViewModel() {
         enable: false
     });
 
+    self.result = ko.observable("");
+
     initRecognizer(self);
 
     this.recognizerStartHandler = function() {
@@ -71,18 +73,21 @@ function AppViewModel() {
                 Object.assign({}, self.recognizer(), {isListen: true})
             );
             var recognizer = this.recognizer().recognizer;
-            window.d = recognizer;
             recognizer.onresult = function(e) {
                 console.group('recognizer result');
                 var index = e.resultIndex;
+
                 console.group('варианты');
                 for (let res of e.results[index]) {
                     console.log(res.transcript);
                 }
                 console.groupEnd();
+
                 var result = e.results[index][0].transcript.trim();
                 console.log('выбрал:', result);
                 console.groupEnd();
+
+                self.result(result);
                 recognizer.stop();
                 self.recognizer(
                     Object.assign({}, self.recognizer(), {isListen: false})
@@ -91,6 +96,12 @@ function AppViewModel() {
             console.log('я слушаю');
             recognizer.start();
         } else {
+            if (self.recognizer().isListen) {
+                self.recognizer(
+                    Object.assign({}, self.recognizer(), {isListen: false})
+                );
+                self.recognizer().recognizer.stop();
+            }
             console.log();
         }
     };
