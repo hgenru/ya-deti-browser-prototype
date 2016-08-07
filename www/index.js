@@ -71,6 +71,7 @@ function AppViewModel() {
     initRecognizer(self);
 
     this.recognizerStartHandler = function() {
+        this.result('');
         if (this.recognizer().enable && !this.recognizer().isListen) {
             self.recognizer(
                 Object.assign({}, self.recognizer(), {isListen: true})
@@ -103,7 +104,8 @@ function AppViewModel() {
                 self.recognizer(
                     Object.assign({}, self.recognizer(), {isListen: false})
                 );
-                self.recognizer().recognizer.stop();
+                self.recognizer().recognizer.abort();
+                // self.recognizer().recognizer.stop();
             }
             console.log();
         }
