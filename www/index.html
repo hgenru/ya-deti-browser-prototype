@@ -14,38 +14,55 @@
 </head>
 <body>
 
-<form class="search-box" action="//yandex.ru/search/" method="post">
-    <div class="search-arrow__container">
-        <div class="search-arrow__input-wrap">
-            <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" >
-        </div>
-        <button class="search-arrow__button" type="submit" name="button">Поиск</button>
-    </div>
-</form>
-
-<main>
-    <div class="suggestions" data-bind="foreach: suggestions">
-        <a data-bind="attr: {href: source}" class="suggest">
-            <div class="suggest-card-square mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand" data-bind="
-                style: {backgroundImage: 'url(' + picture + ')'}
-                ">
-                    <h2 class="mdl-card__title-text" data-bind="text: title">%Title%</h2>
-                </div>
+<section data-bind="if: currentScreen() === 'acquaintance'">
+    <div class="acquaintance-wrap">
+        <div class="acquaintance-container" data-bind="style: {
+            transform: 'translateX(' + acquaintanceStep() * -100 + '%)'
+        }">
+            <div class="acquaintance-page">
+                hello
             </div>
-        </a>
+            <div class="acquaintance-page">
+                hello 2
+            </div>
+        </div>
     </div>
-</main>
+</section>
 
-<button type="button" name="button" class="float-button"
-        data-bind="
-        click: recognizerStartHandler,
-        css: {
-            'float-button--listen': $root.recognizer().isListen
-        }
-        "></button>
+<section data-bind="if: currentScreen() === 'home'">
+    <form class="search-box" action="//yandex.ru/search/" method="post">
+        <div class="search-arrow__container">
+            <div class="search-arrow__input-wrap">
+                <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" >
+            </div>
+            <button class="search-arrow__button" type="submit" name="button">Поиск</button>
+        </div>
+    </form>
 
-<script type="text/javascript" src="index.js"></script>
+    <main>
+        <div class="suggestions" data-bind="foreach: suggestions">
+            <a data-bind="attr: {href: source}" class="suggest">
+                <div class="suggest-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand" data-bind="
+                    style: {backgroundImage: 'url(' + picture + ')'}
+                    ">
+                        <h2 class="mdl-card__title-text" data-bind="text: title">%Title%</h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <button type="button" name="button" class="float-button"
+            data-bind="
+            click: recognizerStartHandler,
+            css: {
+                'float-button--listen': $root.recognizer().isListen
+            }
+            "></button>
+
+    <script type="text/javascript" src="index.js"></script>
+</section>
 
 </body>
 </html>
