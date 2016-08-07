@@ -187,10 +187,17 @@ main
     }
 }
 
-.speach-popup
-{
-    position: absolute;
+.speach-popup {
+    position: fixed;
     z-index: 1000;
+    bottom: 200px;
+    width: 80vw;
+    left: 10vw;
+    background: white;
+    border: 1px solid black;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 10px;
 }
 
 .acquaintance-wrap
