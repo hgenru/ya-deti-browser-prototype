@@ -27,7 +27,52 @@
                 </button>
             </div>
             <div class="acquaintance-page">
-                hello 2
+                <h1>А как зовут тебя?</h1>
+                <input class="tutorial-input">
+                <button class="ya-button tutorial-button" data-bind="click: function() {acquaintanceStep(2)}">
+                    <span>Далее</span>
+                </button>
+            </div>
+            <div class="acquaintance-page">
+                <h1>А сколько<br>тебе лет?</h1>
+                <div class="pin-buttons-container">
+                    <table class="pin-buttons">
+                        <tr>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text"><span class="ltorgt">&lt;</span>5</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">6</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">7</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">8</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">9</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">10<span class="ltorgt">&gt;</span></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
