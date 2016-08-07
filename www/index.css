@@ -1,7 +1,7 @@
 body
 {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Roboto' sans-serif;
     overflow: hidden;
 }
 
@@ -162,11 +162,72 @@ main
 .acquaintance-container > *
 {
     font-size: initial;
+    white-space: initial;
 }
 
 .acquaintance-page
 {
+    position: relative;
     display: inline-block;
     width: 100%;
     height: 100vh;
+    padding: 10px;
+}
+
+.ya-button
+{
+    font-size: 2em;
+    line-height: 1.5em;
+    background: rgba(191,153,0,0.8) !important;;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    user-select: none;
+    color: #000;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    background: rgba(0,0,0,0.2);
+    text-align: center;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
+}
+
+.ya-button:active::before
+{
+    background: rgba(159,127,0,0.8) !important;;
+
+}
+
+.ya-button::before
+{
+    position: absolute;
+    background: #ffdb4d !important;;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    content: '';
+    border-radius: 2px;
+    background: #fff;
+}
+
+.ya-button > span
+{
+    margin: 0 13px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
+.tutorial-button
+{
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
 }
