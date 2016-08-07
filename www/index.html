@@ -37,7 +37,7 @@
     <form class="search-box" action="//yandex.ru/search/" method="post">
         <div class="search-arrow__container">
             <div class="search-arrow__input-wrap">
-                <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" >
+                <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" data-bind="value: result">
             </div>
             <button class="search-arrow__button" type="submit" name="button">Поиск</button>
         </div>
@@ -58,8 +58,8 @@
     </main>
 
     <div class="float-button">
-        <span class="speach-popup" data-bind="visible: result">
-            <span class="speach-popup--content" data-bind="text: result"></span>
+        <span class="speach-popup" data-bind="visible: speech">
+            <span class="speach-popup--content" data-bind="text: speech"></span>
         </span>
         <button type="button" name="button" class="hero"
         data-bind="
