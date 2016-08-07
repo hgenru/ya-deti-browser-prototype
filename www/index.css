@@ -21,6 +21,11 @@ main
     -webkit-overflow-scrolling: touch;
 }
 
+h1
+{
+    margin-top: 0;
+}
+
 .suggestions
 {
     display: flex;
