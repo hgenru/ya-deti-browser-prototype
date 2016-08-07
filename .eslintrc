@@ -20,15 +20,7 @@
     "generator-star-spacing": 0,
     "require-jsdoc": 0,
     "arrow-parens": 0,
-    "react/jsx-uses-vars": 1
   },
-  "plugins": [
-    "react"
-  ],
   "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "15.0"
-    }
   }
 }

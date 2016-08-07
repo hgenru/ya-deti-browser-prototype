@@ -14,6 +14,15 @@
 </head>
 <body>
 
+<form class="search-box" action="//yandex.ru/search/" method="post">
+    <div class="search-arrow__container">
+        <div class="search-arrow__input-wrap">
+            <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" >
+        </div>
+        <button class="search-arrow__button" type="submit" name="button">Поиск</button>
+    </div>
+</form>
+
 <main>
     <div class="suggestions" data-bind="foreach: suggestions">
         <a data-bind="attr: {href: source}" class="suggest">
@@ -28,14 +37,7 @@
     </div>
 </main>
 
-<form class="search-box" action="//yandex.ru/search/" method="post">
-    <div class="search-arrow__container">
-        <div class="search-arrow__input-wrap">
-            <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" >
-        </div>
-        <button class="search-arrow__button" type="submit" name="button">Поиск</button>
-    </div>
-</form>
+<button type="button" name="button" class="float-button" data-bind="click: recognizerStartHandler"></button>
 
 <script type="text/javascript" src="index.js"></script>
 

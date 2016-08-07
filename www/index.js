@@ -23,10 +23,42 @@ var SUGGESTIONS = [
         picture: 'http://kinodom.org/uploads/posts/2014-09/1409594151_sinij-kit.jpg',
         source: 'https://www.youtube.com/watch?v=vlEUCUqHCJs'
     }
-]
+];
 
 function AppViewModel() {
     var self = this;
+    var SpeechRecognition = window.SpeechRecognition ||
+                            window.webkitSpeechRecognition;
+
+    if (SpeechRecognition) {
+        var recognizer = new SpeechRecognition();
+        recognizer.lang = 'ru-RU';
+        recognizer.continuous = false;
+        recognizer.interimResults = false;
+        recognizer.onresult = function(e) {
+            var index = e.resultIndex;
+            var result = e.results[index][0].transcript.trim();
+            console.log(result);
+            self.recognizer.stop();
+        };
+        recognizer.onerror = function(e) {
+            if (e.error === 'not-allowed') {
+                console.log('мне запретили доступ');
+                self.isRecognizerEnabled = false;
+            }
+        };
+        this.isRecognizerEnabled = true;
+        this.recognizer = recognizer;
+        //
+    } else {
+        console.log('fail');
+        this.isRecognizerEnabled = false;
+    }
+
+    this.recognizerStartHandler = function() {
+        console.log('я слушаю');
+        this.recognizer.start();
+    };
 
     this.suggestions = SUGGESTIONS;
     this.currentSuggestIndex = ko.observable(0);
