@@ -1,12 +1,24 @@
 var SUGGESTIONS = [
     {
-        'title': 'Маша и Медведь',
+        title: 'Фиксики',
+        type: 'video',
+        picture: 'http://www.youmult.net/_sf/1/153.jpg',
+        source: 'https://www.youtube.com/watch?v=gtm1Ks1AFAw'
+    },
+    {
+        title: 'Маша и Медведь',
         type: 'video',
         source: 'https://www.youtube.com/watch?v=uriXIjs5U18',
         picture: 'http://smiimg.dt00.net/smi/2012/06/201206081338533783980.jpg'
     },
     {
-        'title': 'Про китов',
+        title: 'Про китов',
+        type: 'video',
+        picture: 'http://kinodom.org/uploads/posts/2014-09/1409594151_sinij-kit.jpg',
+        source: 'https://www.youtube.com/watch?v=vlEUCUqHCJs'
+    },
+    {
+        title: 'Про китов',
         type: 'video',
         picture: 'http://kinodom.org/uploads/posts/2014-09/1409594151_sinij-kit.jpg',
         source: 'https://www.youtube.com/watch?v=vlEUCUqHCJs'
