@@ -57,6 +57,9 @@ function initRecognizer(ctx) {
 function AppViewModel() {
     var self = this;
 
+    this.currentScreen = ko.observable('home');
+    this.acquaintanceStep = ko.observable(0);
+
     self.recognizer = ko.observable({
         recognizer: null,
         isListen: false,
