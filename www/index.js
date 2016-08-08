@@ -57,7 +57,7 @@ function initRecognizer(ctx) {
 function AppViewModel() {
     var self = this;
 
-    this.currentScreen = ko.observable('home');
+    this.currentScreen = ko.observable('acquaintance');
     this.acquaintanceStep = ko.observable(0);
     this.speech = "";
 
@@ -67,7 +67,7 @@ function AppViewModel() {
         enable: false
     });
 
-    self.result = ko.observable("");
+    self.result = ko.observable('');
 
     initRecognizer(self);
 
@@ -93,7 +93,6 @@ function AppViewModel() {
                 console.groupEnd();
 
                 self.result(result);
-                // fetch(`https://suggest.yandex.ru/suggest-ya.cgi?uil=ru&v=4&icon=1&hl=1&html=1&pos=1&part=${}`)
                 recognizer.stop();
                 self.recognizer(
                     Object.assign({}, self.recognizer(), {isListen: false})

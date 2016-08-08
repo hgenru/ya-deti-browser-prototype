@@ -1,0 +1,7 @@
+{
+  "name": "ya-deti-browser-prototype",
+  "description": "ya-deti-browser-prototype",
+  "repository": "https://github.com/hgenru/ya-deti-browser-prototype.git",
+  "keywords": ["node", "static"],
+  "image": "heroku/nodejs"
+}
