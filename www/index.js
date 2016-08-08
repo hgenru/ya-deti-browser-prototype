@@ -93,7 +93,6 @@ function AppViewModel() {
                 console.groupEnd();
 
                 self.result(result);
-                // fetch(`https://suggest.yandex.ru/suggest-ya.cgi?uil=ru&v=4&icon=1&hl=1&html=1&pos=1&part=${}`)
                 recognizer.stop();
                 self.recognizer(
                     Object.assign({}, self.recognizer(), {isListen: false})
