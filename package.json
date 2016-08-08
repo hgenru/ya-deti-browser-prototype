@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bunyan": "^1.8.1"
+    "bunyan": "^1.8.1",
+    "finalhandler": "^0.5.0",
+    "serve-static": "^1.11.1"
   },
   "engines": {
     "node": "6.3.0"
