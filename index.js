@@ -1,12 +1,12 @@
-// let path = require('path');
-let http = require('http');
-let bunyan = require('bunyan');
-let finalhandler = require('finalhandler');
-let serveStatic = require('serve-static');
+// var path = require('path');
+var http = require('http');
+var bunyan = require('bunyan');
+var finalhandler = require('finalhandler');
+var serveStatic = require('serve-static');
 
-const PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8080;
 
-let log = bunyan.createLogger({
+var log = bunyan.createLogger({
     name: 'ya-deti'
     // streams: [
     //     {
@@ -20,11 +20,11 @@ let log = bunyan.createLogger({
     // ]
 });
 
-let serve = serveStatic(
+var serve = serveStatic(
     __dirname + '/www',
     {index: 'index.html'});
 
-let server = http.createServer(function onRequest(req, res) {
+var server = http.createServer(function onRequest(req, res) {
     log.info(req.url);
     serve(req, res, finalhandler(req, res));
 });
