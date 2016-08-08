@@ -67,7 +67,7 @@ function AppViewModel() {
         enable: false
     });
 
-    self.result = ko.observable("");
+    self.result = ko.observable('');
 
     initRecognizer(self);
 

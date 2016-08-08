@@ -1,4 +1,3 @@
-// var path = require('path');
 var http = require('http');
 var bunyan = require('bunyan');
 var finalhandler = require('finalhandler');
@@ -8,16 +7,6 @@ var PORT = process.env.PORT || 8080;
 
 var log = bunyan.createLogger({
     name: 'ya-deti'
-    // streams: [
-    //     {
-    //         level: 'info',
-    //         stream: path.resolve(__dirname, 'logs/log')
-    //     },
-    //     {
-    //         level: 'error',
-    //         path: path.resolve(__dirname, 'logs/log')
-    //     }
-    // ]
 });
 
 var serve = serveStatic(
