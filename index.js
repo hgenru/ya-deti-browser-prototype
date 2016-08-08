@@ -1,4 +1,4 @@
-let path = require('path');
+// let path = require('path');
 let http = require('http');
 let bunyan = require('bunyan');
 let finalhandler = require('finalhandler');
@@ -21,7 +21,7 @@ let log = bunyan.createLogger({
 });
 
 let serve = serveStatic(
-    path.resolve(__dirname, 'www'),
+    __dirname + '/www',
     {index: 'index.html'});
 
 let server = http.createServer(function onRequest(req, res) {
