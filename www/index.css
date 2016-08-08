@@ -21,6 +21,11 @@ main
     -webkit-overflow-scrolling: touch;
 }
 
+h1
+{
+    margin-top: 0;
+}
+
 .suggestions
 {
     display: flex;
@@ -103,8 +108,8 @@ main
 .float-button
 {
     position: absolute;
-    bottom: 60px;
-    right: 60px;
+    bottom: 40px;
+    right: 40px;
 }
 
 .hero
@@ -228,7 +233,8 @@ main
     display: inline-block;
     width: 100%;
     height: 100vh;
-    padding: 10px;
+    padding: 20px;
+    vertical-align: top;
 }
 
 .ya-button
@@ -287,4 +293,98 @@ main
     position: absolute;
     bottom: 25px;
     right: 25px;
+}
+
+.tutorial-input
+{
+    border: 5px solid #ffdb4d;
+    border-radius: 10px;
+    font-size: 2em;
+    width: 100%;
+}
+
+.pin-buttons-container
+{
+    text-align: center;
+    width: 100%;
+}
+
+.pin-buttons
+{
+    text-align: center;
+}
+
+.pin-buttons__button-block
+{
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+
+.pin-buttons__button
+{
+    display: inline-block;
+    width: 90%;
+    height: 90%;
+    outline: none;
+    border: none;
+    background-color: #3790DA;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    margin: 5%;
+}
+
+.pin-buttons__button-text
+{
+    position: absolute;
+    font-size: 3.2rem;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: -0.03em;
+}
+
+.pin-buttons__button:active
+{
+    opacity: 0.7;
+}
+
+table.pin-buttons
+{
+    width: 100%;
+}
+
+.pin-buttons td
+{
+    width: 30%;
+    position:relative;
+}
+
+.pin-buttons td:after
+{
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+.pin-buttons td > div
+{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.ltorgt
+{
+    font-size: 0.5em;
+    vertical-align: bottom;
+    margin: 3px;
 }
