@@ -26,14 +26,13 @@ var SUGGESTIONS = [
 ];
 
 function initRecognizer(ctx) {
-    var SpeechRecognition = window.SpeechRecognition ||
-                            window.webkitSpeechRecognition;
+    var SpeechRecognition = window.webkitSpeechRecognition;
 
     if (SpeechRecognition) {
         var recognizer = new SpeechRecognition();
         recognizer.lang = 'ru-RU';
-        recognizer.continuous = false;
-        recognizer.interimResults = false;
+        recognizer.continuous = true;
+        recognizer.interimResults = true;
         recognizer.maxAlternatives = 5;
 
         recognizer.onerror = function(e) {
@@ -57,7 +56,14 @@ function initRecognizer(ctx) {
 function AppViewModel() {
     var self = this;
 
-    this.currentScreen = ko.observable('acquaintance');
+    if (localStorage.getItem('user')) {
+        this.currentScreen = ko.observable('home');
+    } else {
+        this.currentScreen = ko.observable('acquaintance');
+    }
+
+    this.menuIsOpen = ko.observable(true);
+
     this.acquaintanceStep = ko.observable(0);
     this.speech = "";
 
@@ -79,20 +85,31 @@ function AppViewModel() {
             );
             var recognizer = this.recognizer().recognizer;
             recognizer.onresult = function(e) {
-                console.group('recognizer result');
-                var index = e.resultIndex;
-
-                console.group('варианты');
-                for (let res of e.results[index]) {
-                    console.log(res.transcript);
+                var interim_transcript = '';
+                var final_transcript;
+                // var final_transcript = this.result();
+                for (var i = e.resultIndex; i < e.results.length; ++i) {
+                    if (e.results[i].isFinal) {
+                        final_transcript = final_transcript + e.results[i][0].transcript;
+                    } else {
+                        interim_transcript = interim_transcript + e.results[i][0].transcript;
+                    }
                 }
-                console.groupEnd();
+                final_transcript = final_transcript;
+                // console.group('recognizer result');
+                // var index = e.resultIndex;
+                //
+                // console.group('варианты');
+                // for (let res of e.results[index]) {
+                //     console.log(res.transcript);
+                // }
+                // console.groupEnd();
+                //
+                // var result = e.results[index][0].transcript.trim();
+                // console.log('выбрал:', result);
+                // console.groupEnd();
 
-                var result = e.results[index][0].transcript.trim();
-                console.log('выбрал:', result);
-                console.groupEnd();
-
-                self.result(result);
+                self.result(final_transcript);
                 recognizer.stop();
                 self.recognizer(
                     Object.assign({}, self.recognizer(), {isListen: false})

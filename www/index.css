@@ -311,6 +311,65 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
+.fba {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  background: #F06292;
+  border-radius: 50%;
+}
+
+.fba__content {
+    display: flex;
+max-height: 40px;
+max-width: 40px;
+background-image: url('resources/brush.svg');
+width: 100%;
+height: 100%;
+background-size: 60%;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.fba__content--hidden-content {
+  position: fixed;
+  top: 120px;
+  left: 10vw;
+  width: 80vw;
+  background: #fff;
+  border-radius: 4px;
+}
+.fba__content--hidden {
+    visibility: hidden;
+}
+.fba__content--visible {
+    visibility: visible;;
+}
+.theme-switch {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    flex-wrap: nowrap;
+}
+
+.theme-switch__item {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 60px;
+    display: flex;
+    border-radius: 4px;
+}
+
+.theme-switch__item>img {
+    width: 60px;
+  align-items: baseline;
+  line-height: 100px;
+  margin: auto;
+}
+
 .pin-buttons__button:active {
   opacity: 0.7;
 }
