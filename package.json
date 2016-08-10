@@ -6,7 +6,9 @@
   "dependencies": {
     "bunyan": "^1.8.1",
     "finalhandler": "^0.5.0",
-    "serve-static": "^1.11.1"
+    "serve-static": "^1.11.1",
+    "stylelint": "^7.1.0",
+    "stylelint-config-primer": "^1.1.0"
   },
   "engines": {
     "node": "6.3.0"
@@ -14,10 +16,11 @@
   "devDependencies": {
     "eslint": "^3.2.2",
     "eslint-config-google": "^0.6.0",
-    "eslint-plugin-react": "^6.0.0"
+    "eslint-plugin-react": "^6.0.0",
+    "stylelint-config-standard": "^12.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "eslint www/*.js && stylelint www/*.css",
     "start": "node index.js",
     "heroku-prebuild": "node -v"
   },

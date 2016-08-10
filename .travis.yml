@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - "6.1.0"
+- 6.1.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: Vzj1n0c8UGeBsfSdW003rO5qZpSaCABIuuU92YwHEQxcpcFS8ChSqlRQxTEllI8qKi+sZ92snVf+fYBpliNSk6gM1/8gP86tfq2Xkdoj8KIRv7YXCTCdmct2fVskInAsK5N3AKPl+hLew75mOGtOYeYpSXqvhSSVS4mM4I7/oPUTEDBzk+Wz3cuZRyoOalbG8LikOLEDMH74R2eZA4sMNlsjxmz/+ZHUy9cHPHEFoQi1iGfnQg32bFM2u1X0/hDhzdGNVFKUa+8kcl/O1px/IMsEeUBxIntYrF0rg/yRrSMAt6omax/HPF2OUw/pWXIXSYopiRHUD6Cvhzqz+SYme4T4hXhl42ySWFeGYJ5udJPwDj58D4Y31Gu0zIXoR3gJwTHRx+SDQj8VoWBOkwo/ALNDgVvZ2y46nUqPC99VjZCc05WVqngWhfpY/MWSfAtTo5wdJgr8F342CGMaYWuhagPVYOuK9O/P6cjT1Sw93k+Hi0KLIRrSU4hfsq7orYsC6K4rjm4dCgVcpl8WqmrmZ6hsPfunbKDb3kmrZTf5zXvtCL0djjuo3nqIvdNdqtRqcs7y1G8zNsQoJNOMHX+mJDLjHSnMRWk2eAWhBmEazSipiF71KrgOZfgVFjsDFr90UH30QhiNqwqKuww5cQanN42vspbyc1GYO4f0Y60wWiw=
+  app: vast-brushlands-49475
+  on:
+    repo: slogger/ya-deti-browser-prototype

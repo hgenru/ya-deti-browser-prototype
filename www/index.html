@@ -93,6 +93,29 @@
         </div>
     </form>
 
+    <div class="fba">
+        <span class="fba__content">
+        </span>
+        <span class="fba__content--hidden-content" data-bind="css: {
+            'fba__content--hidden': !$root.menuIsHide
+        }">
+            <span class="theme-switch">
+                <span class="theme-switch__item">
+                    <img src="resources/ball.svg" alt="" />
+                </span>
+                <span class="theme-switch__item">
+                    <img src="resources/unicorne.svg" alt="" />
+                </span>
+                <span class="theme-switch__item">
+                    <img src="resources/heart.svg" alt="" />
+                </span>
+                <span class="theme-switch__item">
+                    <img src="resources/default.svg" alt="" />
+                </span>
+            </span>
+        </span>
+    </div>
+
     <main>
         <div class="suggestions" data-bind="foreach: suggestions">
             <a data-bind="attr: {href: source}" class="suggest">
