@@ -402,3 +402,22 @@ table.pin-buttons {
   font-size: 0.5em;
   vertical-align: bottom;
 }
+
+.theme-accent
+{
+    position: absolute;
+    right: -10px;
+    width: 60px;
+    height: 50px;
+    z-index: 1111;
+    bottom: -10px;
+    background-image: url("resources/ball.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.suggest-card-square,
+.mdl-card__title-text
+{
+    overflow: visible;
+}

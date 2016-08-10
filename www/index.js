@@ -18,10 +18,10 @@ var SUGGESTIONS = [
         source: 'https://www.youtube.com/watch?v=vlEUCUqHCJs'
     },
     {
-        title: 'Про китов',
+        title: 'Про кiтов',
         type: 'video',
-        picture: 'http://kinodom.org/uploads/posts/2014-09/1409594151_sinij-kit.jpg',
-        source: 'https://www.youtube.com/watch?v=vlEUCUqHCJs'
+        picture: 'http://dooced.ru/wp-content/uploads/2015/05/koty_prikolnye_s_kotami_1600x1200.jpg',
+        source: 'https://www.youtube.com/watch?v=HIiFLJT3aoA'
     }
 ];
 
@@ -63,6 +63,8 @@ function AppViewModel() {
     }
 
     this.menuIsOpen = ko.observable(true);
+    this.themePicture = ko.observable(null);
+    this.themeColor = ko.observable();
 
     this.acquaintanceStep = ko.observable(0);
     this.speech = "";

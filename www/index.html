@@ -94,29 +94,29 @@
     </form>
 
     <div class="fba">
-        <span class="fba__content">
+        <span class="fba__content" data-bind="click: function() {menuIsOpen(!menuIsOpen())}">
         </span>
         <span class="fba__content--hidden-content" data-bind="css: {
-            'fba__content--hidden': !$root.menuIsHide
+            'fba__content--hidden': !$root.menuIsOpen()
         }">
             <span class="theme-switch">
-                <span class="theme-switch__item">
+                <span class="theme-switch__item" data-bind="click: function() {themePicture('resources/ball.svg');themeColor('#b7b7ff');menuIsOpen(false)}">
                     <img src="resources/ball.svg" alt="" />
                 </span>
-                <span class="theme-switch__item">
+                <span class="theme-switch__item" data-bind="click: function() {themePicture('resources/unicorne.svg');themeColor('pink');menuIsOpen(false)}">
                     <img src="resources/unicorne.svg" alt="" />
                 </span>
-                <span class="theme-switch__item">
+                <span class="theme-switch__item" data-bind="click: function() {themePicture('resources/heart.svg');themeColor('#ffd2d2');menuIsOpen(false)}">
                     <img src="resources/heart.svg" alt="" />
                 </span>
-                <span class="theme-switch__item">
+                <span class="theme-switch__item" data-bind="click: function() {themePicture(null);themeColor('white');menuIsOpen(false)}">
                     <img src="resources/default.svg" alt="" />
                 </span>
             </span>
         </span>
     </div>
 
-    <main>
+    <main data-bind="style: {background: themeColor}">
         <div class="suggestions" data-bind="foreach: suggestions">
             <a data-bind="attr: {href: source}" class="suggest">
                 <div class="suggest-card-square mdl-card mdl-shadow--2dp">
@@ -125,6 +125,9 @@
                     ">
                         <h2 class="mdl-card__title-text" data-bind="text: title">%Title%</h2>
                     </div>
+                    <div class="theme-accent" data-bind="style: {
+                        backgroundImage: 'url(' + $root.themePicture() + ')'
+                    }"></div>
                 </div>
             </a>
         </div>
