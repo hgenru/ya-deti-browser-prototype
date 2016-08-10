@@ -6,10 +6,10 @@ var SUGGESTIONS = [
         source: 'https://www.youtube.com/watch?v=gtm1Ks1AFAw'
     },
     {
-        title: 'Маша и Медведь',
+        title: 'Гравипадово',
         type: 'video',
-        source: 'https://www.youtube.com/watch?v=uriXIjs5U18',
-        picture: 'http://smiimg.dt00.net/smi/2012/06/201206081338533783980.jpg'
+        source: 'https://www.youtube.com/watch?v=QieiWpGLeRQ',
+        picture: 'http://datakogda.ru/wp-content/uploads/2015/07/Kogda-vyydet-Graviti-Folz-3-sezon-data-vykhoda.jpg'
     },
     {
         title: 'Про китов',
