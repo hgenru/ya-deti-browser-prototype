@@ -97,7 +97,7 @@ function AppViewModel() {
                         interim_transcript = interim_transcript + e.results[i][0].transcript;
                     }
                 }
-                final_transcript = final_transcript;
+                final_transcript = (final_transcript || '').replace('undefined', '');
                 // console.group('recognizer result');
                 // var index = e.resultIndex;
                 //
