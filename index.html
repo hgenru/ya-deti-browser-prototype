@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="manifest.json">
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<section data-bind="if: currentScreen() === 'acquaintance'">
+    <div class="acquaintance-wrap">
+        <div class="acquaintance-container" data-bind="style: {
+            transform: 'translateX(' + acquaintanceStep() * -100 + '%)'
+        }">
+            <div class="acquaintance-page">
+                <h1>Привет, меня зовут кругляш!</h1>
+                <span class="hero" style="    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scale(2);
+    margin-top: 50px;"></span>
+                <button class="ya-button tutorial-button" data-bind="click: function() {acquaintanceStep(1)}">
+                    <span>Далее</span>
+                </button>
+            </div>
+            <div class="acquaintance-page">
+                <h1>А как зовут тебя?</h1>
+                <input class="tutorial-input">
+                <button class="ya-button tutorial-button" data-bind="click: function() {acquaintanceStep(2)}">
+                    <span>Далее</span>
+                </button>
+            </div>
+            <div class="acquaintance-page">
+                <h1>А сколько<br>тебе лет?</h1>
+                <div class="pin-buttons-container">
+                    <table class="pin-buttons">
+                        <tr>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text"><span class="ltorgt">&lt;</span>5</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">6</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">7</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">8</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">9</span>
+                                </div>
+                            </td>
+                            <td class="pin-buttons__button-block" data-bind="click: function() {currentScreen('home')}">
+                                <div class="pin-buttons__button">
+                                    <span class="pin-buttons__button-text">10<span class="ltorgt">&gt;</span></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bind="if: currentScreen() === 'home'">
+    <form class="search-box" action="//yandex.ru/search/" method="post">
+        <div class="search-arrow__container">
+            <div class="search-arrow__input-wrap">
+                <input class="search-arrow__input" type="search" name="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-autocomplete="list" data-bind="value: result">
+            </div>
+            <button class="search-arrow__button" type="submit" name="button">Поиск</button>
+        </div>
+    </form>
+
+    <div class="fba">
+        <span class="fba__content" data-bind="click: function() {menuIsOpen(!menuIsOpen())}">
+        </span>
+        <span class="fba__content--hidden-content" data-bind="css: {
+            'fba__content--hidden': !$root.menuIsOpen()
+        }">
+            <span class="theme-switch">
+                <span class="theme-switch__item" data-bind="click: function() {themePicture('resources/ball.svg');themeColor('#b7b7ff');menuIsOpen(false)}">
+                    <img src="resources/ball.svg" alt="" />
+                </span>
+                <span class="theme-switch__item" data-bind="click: function() {themePicture('resources/unicorne.svg');themeColor('pink');menuIsOpen(false)}">
+                    <img src="resources/unicorne.svg" alt="" />
+                </span>
+                <span class="theme-switch__item" data-bind="click: function() {themePicture('resources/heart.svg');themeColor('#ffd2d2');menuIsOpen(false)}">
+                    <img src="resources/heart.svg" alt="" />
+                </span>
+                <span class="theme-switch__item" data-bind="click: function() {themePicture(null);themeColor('white');menuIsOpen(false)}">
+                    <img src="resources/default.svg" alt="" />
+                </span>
+            </span>
+        </span>
+    </div>
+
+    <main data-bind="style: {background: themeColor}">
+        <div class="suggestions" data-bind="foreach: suggestions">
+            <a data-bind="attr: {href: source}" class="suggest">
+                <div class="suggest-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand" data-bind="
+                    style: {backgroundImage: 'url(' + picture + ')'}
+                    ">
+                        <h2 class="mdl-card__title-text" data-bind="text: title">%Title%</h2>
+                    </div>
+                    <div class="theme-accent" data-bind="style: {
+                        backgroundImage: 'url(' + $root.themePicture() + ')'
+                    }"></div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <div class="float-button">
+        <span class="speach-popup" data-bind="visible: speech">
+            <span class="speach-popup--content" data-bind="text: speech"></span>
+        </span>
+        <button type="button" name="button" class="hero"
+        data-bind="
+        click: recognizerStartHandler,
+        css: {
+            'hero--listen': $root.recognizer().isListen
+        }
+        "></button>
+        <span class="hero hero--waves"></span>
+    </div>
+
+
+</section>
+
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
